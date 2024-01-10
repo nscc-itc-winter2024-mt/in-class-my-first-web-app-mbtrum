@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using MyFirstWebApp.Models;
+using System.Xml.Linq;
 
 namespace MyFirstWebApp.Pages
 {
@@ -35,6 +37,9 @@ namespace MyFirstWebApp.Pages
 
             int myOtherInt;
             myOtherInt = 20;
+
+            // var type is deferred until runtime
+            var myVar = "Hello World!";
 
             // Operators
             int sum = myInt + myOtherInt;
@@ -87,6 +92,49 @@ namespace MyFirstWebApp.Pages
             {
                 _logger.Log(LogLevel.Information, name);
             }
+
+
+            // Classes and Models - using "old" way of creating a model class
+
+            Friend_OtherWay myFirstFriend;
+            myFirstFriend = new Friend_OtherWay("Mike", "Smith", "mike@nscc.ca");
+            Friend_OtherWay mySecondFriend = new Friend_OtherWay("Han", "Solo", "hansolo@nscc.ca");
+            Friend_OtherWay myThirdFriend = new Friend_OtherWay("Luke", "Skywalker", "luke@nscc.ca");
+
+            // Instatiate without constructor values
+            Friend_OtherWay myForthFriend = new Friend_OtherWay();
+            myForthFriend.SetFirstName("Leia");
+            myForthFriend.SetLastName("Organa");
+            myForthFriend.SetEmail("leia@nscc.ca");
+
+            // A List<type> can be most type really
+            List<Friend_OtherWay> friendList = new List<Friend_OtherWay>();
+            friendList.Add(myFirstFriend);
+            friendList.Add(mySecondFriend);
+            friendList.Add(myThirdFriend);
+
+            foreach(Friend_OtherWay friend in friendList)
+            {
+                _logger.Log(LogLevel.Information, friend.GetFirstName() + " " + friend.GetLastName());
+            }
+
+            // Classes and Models - using "new" way of creating a model class
+            Friend friend1 = new Friend();
+            friend1.FirstName = "Mike";
+            friend1.LastName = "Smith";
+            friend1.Email = "mike@nscc.ca";
+
+            Friend friend2 = new Friend()
+            {
+                FirstName = "Han",
+                LastName = "Solo",
+                Email = "han@nscc.ca"
+            };
+
+
+
+
+
         }
     }
 }
