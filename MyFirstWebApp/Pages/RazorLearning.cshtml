@@ -1,0 +1,61 @@
+﻿@page
+@model MyFirstWebApp.Pages.RazorLearningModel
+@{
+    // Using the @ puts us into Razor syntax mode, not HTML.
+
+    string aName = "Han Solo";
+
+    string[] names = { "Han Solo", "Luke Skywalker", "Leia Organa" };
+
+    int count = 5;
+}
+
+<h1>Razor Learning</h1>
+
+<!-- Variables -->
+
+<p>Hello @aName.ToUpper() welcome to my web app.</p>
+
+<!-- Loops-->
+<ul>
+    @foreach(string name in names)
+    {
+        <li>@name</li>
+    }
+</ul>
+
+<!-- If statement -->
+
+@if(count > 5)
+{
+    <p>Count is greater than @count.</p>
+}
+else if (count < 5)
+{
+    <p>Count is less than @count.</p>
+}
+else
+{
+    <p>Count is equal to @count.</p>
+}
+
+@{
+    // Another Razor code block
+    int anotherInt = 10;
+}
+
+<p>
+    My other int @anotherInt.
+</p>
+
+
+<!-- Model Binding -->
+
+<p>
+    A message from my Page Model:  @Model.pageModelMessage
+</p>
+
+
+
+
+

@@ -92,33 +92,8 @@ namespace MyFirstWebApp.Pages
             {
                 _logger.Log(LogLevel.Information, name);
             }
-
-
-            // Classes and Models - using "old" way of creating a model class
-
-            Friend_OtherWay myFirstFriend;
-            myFirstFriend = new Friend_OtherWay("Mike", "Smith", "mike@nscc.ca");
-            Friend_OtherWay mySecondFriend = new Friend_OtherWay("Han", "Solo", "hansolo@nscc.ca");
-            Friend_OtherWay myThirdFriend = new Friend_OtherWay("Luke", "Skywalker", "luke@nscc.ca");
-
-            // Instatiate without constructor values
-            Friend_OtherWay myForthFriend = new Friend_OtherWay();
-            myForthFriend.SetFirstName("Leia");
-            myForthFriend.SetLastName("Organa");
-            myForthFriend.SetEmail("leia@nscc.ca");
-
-            // A List<type> can be most type really
-            List<Friend_OtherWay> friendList = new List<Friend_OtherWay>();
-            friendList.Add(myFirstFriend);
-            friendList.Add(mySecondFriend);
-            friendList.Add(myThirdFriend);
-
-            foreach(Friend_OtherWay friend in friendList)
-            {
-                _logger.Log(LogLevel.Information, friend.GetFirstName() + " " + friend.GetLastName());
-            }
-
-            // Classes and Models - using "new" way of creating a model class
+          
+            // Classes and Models
             Friend friend1 = new Friend();
             friend1.FirstName = "Mike";
             friend1.LastName = "Smith";
@@ -130,7 +105,17 @@ namespace MyFirstWebApp.Pages
                 LastName = "Solo",
                 Email = "han@nscc.ca"
             };
+            friend2.Email = "hansolo@nscc.ca";
 
+
+            List<Friend> friends = new List<Friend>();
+            friends.Add(friend1);
+            friends.Add(friend2);
+
+            foreach (Friend friend in friends)
+            {
+                _logger.Log(LogLevel.Information, friend.FirstName + " " + friend.FirstName);
+            }
 
 
 
