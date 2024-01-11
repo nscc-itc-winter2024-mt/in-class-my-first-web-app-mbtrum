@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using MyFirstWebApp.Models;
 
 namespace MyFirstWebApp.Pages
 {
@@ -12,6 +13,14 @@ namespace MyFirstWebApp.Pages
         private readonly ILogger<RazorLearningModel> _logger;
 
         public string pageModelMessage = "Welcome to Model Binding!!!";
+
+        public string[] pets = { "dog", "cat", "hamster" };
+
+        public Friend friend = new Friend() { 
+            FirstName = "Lando", 
+            LastName = "Carlissian", 
+            Email = "lando@nscc.ca" 
+        };
 
         //
         // Methods

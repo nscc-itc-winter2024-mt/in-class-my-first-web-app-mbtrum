@@ -55,6 +55,44 @@ else
     A message from my Page Model:  @Model.pageModelMessage
 </p>
 
+<ul>
+    @foreach (string pet in Model.pets)
+    {
+        <li>@pet</li>
+    }
+</ul>
+
+<p>
+    My friend:
+</p>
+
+<table>
+    <tr>
+        <td>
+            First Name:
+        </td>
+        <td>
+            @Model.friend.FirstName
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Last Name:
+        </td>
+        <td>
+            @Model.friend.LastName
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Email:
+        </td>
+        <td>
+            @Model.friend.Email
+        </td>
+    </tr>
+</table>
+
 
 
 
