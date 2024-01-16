@@ -1,0 +1,40 @@
+﻿@page
+@model MyFirstWebApp.Pages.BindingLearningModel
+@{
+}
+
+<h1>Binding Learning</h1>
+
+<p>
+    <strong>Below is an example of simple two-way binding.</strong>
+</p>
+
+
+<form method="post">
+    <p>
+        <label for="Message">Message:</label><br>
+        <input asp-for="Message" />
+    </p>
+
+    <p>
+        <strong>Pet:</strong>
+    </p>
+
+    <p>
+        <label for="">Name:</label><br>
+        <input asp-for="Pet.Name" />
+    </p>
+
+    <p>
+        <label for="">Age:</label><br>
+        <input asp-for="Pet.Age" />
+    </p>
+
+    <p>
+        <input type="submit" value="Submit" />
+    </p>
+</form>
+
+
+
+
